@@ -1,0 +1,50 @@
+﻿<luar-crud crud="ctrl" title="Cadastro de Apartamentos">
+
+    <luar-list list="ctrl.lista" ng-show="!Cadastro">
+        <column id="id" title="Número" searchable="true"></column>
+        <column id="TORRE" title="Torre" searchable="true"></column>
+        <column id="GARAGEM" title="Garagem" searchable="true"></column>
+        <luar-table></luar-table>
+    </luar-list>
+
+    <luar-main-form ng-show="Cadastro">
+        <tabset>
+            <tab heading="Dados Gerais">
+                <tab-heading> Dados Gerais </tab-heading>
+                <fieldset>
+                    <div class="row">
+                        <luar-text container-class="col-md-2" label="Número" name="codigo" maxlength="10" type="number" required
+                                   ng-model="ctrl.currentRecord.CODIGO"></luar-text>
+                    </div>
+
+                    <div class="row">
+                        <luar-select container-class="col-md-3" label="Torre" name="TORRE" required
+                                     ng-options="item.id as item.id for item in ::ctrl.TorreLook"
+                                     ng-model="ctrl.currentRecord.TORRE">
+                        </luar-select>
+                    </div>
+
+                    <div class="row">
+                        <luar-text container-class="col-md-3" label="Garagem" name="nome" type="number"
+                                   ng-model="ctrl.currentRecord.GARAGEM"></luar-text>
+                    </div>
+
+                    <div class="row">
+                        <luar-text container-class="col-md-3" label="Proprietário Documento" name="documento" 
+                                   ng-model="ctrl.currentRecord.DOCUMENTO_PESSOA" ng-change="ctrl.GetProprietario()"></luar-text>
+
+                        <luar-text container-class="col-md-6" label="Proprietário Nome" name="documentoNome" readonly
+                                   ng-model="ctrl.currentRecord.NOME_PESSOA"></luar-text>
+                    </div>
+
+
+                </fieldset>
+            </tab>
+        </tabset>
+    </luar-main-form>
+
+</luar-crud>
+
+
+
+

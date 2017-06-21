@@ -1,0 +1,65 @@
+﻿<luar-crud crud="ctrl" title="Entrada de Veículos">
+
+    <!--<luar-list list="ctrl.lista" ng-show="!Cadastro">
+        <column id="id" title="Código" searchable="true"></column>
+        <column id="PLACA" title="Placa" searchable="true"></column>
+        <column id="NOME_PESSOA" title="Pessoa" searchable="true"></column>
+        <column id="VISITANTE" title="Visitante" searchable="true"></column>
+        <luar-table></luar-table>
+    </luar-list>-->
+    <!--ng-show="Cadastro"-->
+
+    <luar-main-form>
+        <tabset>
+            <tab heading="Dados de Entrada">
+                <tab-heading> Dados de Entrada</tab-heading>
+                <fieldset>
+                    <!--<div class="row">
+                        <luar-text container-class="col-md-2" label="Código" name="codigo"
+                                   readonly ng-model="ctrl.currentRecord.id"></luar-text>
+                    </div>-->
+
+                    <div class="row">
+                        <luar-text container-class="col-md-3" label="Placa" name="placa"
+                                   ng-model="ctrl.currentRecord.PLACA" required ng-change="ctrl.GetProprietarioPlaca()"></luar-text>
+
+                        <luar-text container-class="col-md-3" label="Documento" required name="nome" maxlength="15"
+                                   ng-model="ctrl.currentRecord.DOCUMENTO_PESSOA" ng-change="ctrl.GetProprietario()"></luar-text>
+                    </div>
+
+                    <div class="row">
+                        <luar-text container-class="col-md-8" label="Proprietário Veículo" required name="documentoNome" 
+                                   ng-model="ctrl.currentRecord.NOME_PESSOA"></luar-text>
+                    </div>
+
+                    <div class="row">
+                        <luar-text container-class="col-md-2" label="Torre" name="Torre"
+                                   ng-model="ctrl.currentRecord.TORRE" required></luar-text>
+
+                        <luar-text container-class="col-md-2" label="Nro AP" name="nrpap" maxlength="4"
+                                   ng-model="ctrl.currentRecord.CAD_APARTAMENTO" required></luar-text>
+
+                        <luar-text container-class="col-md-2" label="Garagem" name="garagem" maxlength="4"
+                                   ng-model="ctrl.currentRecord.GARAGEM" required></luar-text>
+                    </div>
+
+                    <div class="row">
+                        <luar-text container-class="col-md-8" label="Proprietário AP" required name="documentoNomeAP" 
+                                   ng-model="ctrl.currentRecord.NOME_PESSOA_AP"></luar-text>
+                    </div>
+
+                    <div class="row">
+                        <luar-Textarea container-class="col-md-8" label="Observações" name="OBS" maxlength="250"
+                                       ng-model="ctrl.currentRecord.OBS"></luar-Textarea>
+                    </div>
+
+                </fieldset>
+            </tab>
+        </tabset>
+    </luar-main-form>
+
+</luar-crud>
+
+
+
+
