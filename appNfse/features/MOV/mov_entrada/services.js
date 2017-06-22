@@ -17,11 +17,11 @@ var App;
             function CrudMov_EntradaService($q, api, $rootScope) {
                 _super.apply(this, arguments);
 
-                this.GetProprietario = GetProprietario;
-            }
+                this.GetProprietarioPlaca = GetProprietarioPlaca;
+            }              
 
-            function GetProprietario(DOCUMENTO) {
-                return this.api.allLook(null, 'cad_pessoa/documento/' + DOCUMENTO);
+            function GetProprietarioPlaca(PLACA) {
+                return this.api.allLook(null, 'cad_pessoa/placa/' + PLACA);
             }
 
             Object.defineProperty(CrudMov_EntradaService.prototype, "baseEntity", {

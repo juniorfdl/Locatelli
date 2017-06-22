@@ -9,7 +9,21 @@
     </luar-list>-->
     <!--ng-show="Cadastro"-->
 
-    <luar-main-form>
+    <div ng-show="!Cadastro" >
+        <br />
+        <br />
+        <h1>Entrada de Veículos</h1>
+        <br />
+        <br />
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="docs" placeholder="Digite a Placa ou Documento"
+                   ng-model="ctrl.currentRecord.DOCS" required
+                   ng-keyup="ctrl.GetProprietarioPlaca($event)">
+        </div>
+
+    </div>
+
+    <luar-main-form ng-show="Cadastro">
         <tabset>
             <tab heading="Dados de Entrada">
                 <tab-heading> Dados de Entrada</tab-heading>
@@ -17,18 +31,20 @@
                     <!--<div class="row">
                         <luar-text container-class="col-md-2" label="Código" name="codigo"
                                    readonly ng-model="ctrl.currentRecord.id"></luar-text>
+                        ng-change="ctrl.GetProprietarioPlaca()"
                     </div>-->
 
                     <div class="row">
-                        <luar-text container-class="col-md-3" label="Placa" name="placa"
-                                   ng-model="ctrl.currentRecord.PLACA" required ng-change="ctrl.GetProprietarioPlaca()"></luar-text>
+                        <luar-text container-class="col-md-3" label="Placa" name="placa" required 
+                                   ng-model="ctrl.currentRecord.PLACA"                                  
+                                   maxlength="7"></luar-text>
 
                         <luar-text container-class="col-md-3" label="Documento" required name="nome" maxlength="15"
-                                   ng-model="ctrl.currentRecord.DOCUMENTO_PESSOA" ng-change="ctrl.GetProprietario()"></luar-text>
+                                   ng-model="ctrl.currentRecord.DOCUMENTO_PESSOA"></luar-text>
                     </div>
 
                     <div class="row">
-                        <luar-text container-class="col-md-8" label="Proprietário Veículo" required name="documentoNome" 
+                        <luar-text container-class="col-md-8" label="Proprietário Veículo" required name="documentoNome"
                                    ng-model="ctrl.currentRecord.NOME_PESSOA"></luar-text>
                     </div>
 
@@ -37,14 +53,14 @@
                                    ng-model="ctrl.currentRecord.TORRE" required></luar-text>
 
                         <luar-text container-class="col-md-2" label="Nro AP" name="nrpap" maxlength="4"
-                                   ng-model="ctrl.currentRecord.CAD_APARTAMENTO" required></luar-text>
+                                   ng-model="ctrl.currentRecord.COD_CADAPARTAMENTO" required></luar-text>
 
                         <luar-text container-class="col-md-2" label="Garagem" name="garagem" maxlength="4"
                                    ng-model="ctrl.currentRecord.GARAGEM" required></luar-text>
                     </div>
 
                     <div class="row">
-                        <luar-text container-class="col-md-8" label="Proprietário AP" required name="documentoNomeAP" 
+                        <luar-text container-class="col-md-8" label="Proprietário AP" required name="documentoNomeAP"
                                    ng-model="ctrl.currentRecord.NOME_PESSOA_AP"></luar-text>
                     </div>
 

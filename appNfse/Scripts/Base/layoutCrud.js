@@ -359,6 +359,7 @@ var App;
                     scope.luarCrudCtrl = luarCrudCtrl;
                     scope.voltar = function ()
                     {
+                        debugger;
                         this.$root.Cadastro = !this.$root.Cadastro;
                     };
                 }
