@@ -16,16 +16,16 @@
         <nav class="collapse navbar-collapse" collapse="navData.isCollapsed()">
             <ul class="nav navbar-nav">
 
-                <li class="dropdown" dropdown>
+                <li ng-if="ADMIN" class="dropdown" dropdown>
                     <a href="#" class="dropdown-toggle" dropdown-toggle>Configurações<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li ng-if="ADMIN">
+                        <li>
                             <a ui-sref="usuario" menu-item="Usuario">Usuários</a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="dropdown" dropdown>
+                <li ng-if="ADMIN" class="dropdown" dropdown>
                     <a href="#" class="dropdown-toggle" dropdown-toggle>Cadastros<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>

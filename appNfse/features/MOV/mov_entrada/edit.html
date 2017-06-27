@@ -9,18 +9,15 @@
     </luar-list>-->
     <!--ng-show="Cadastro"-->
 
-    <div ng-show="!Cadastro" >
+    <div style="font-size:16px; padding-left: 5px; "  ng-show="!Cadastro">     
         <br />
         <br />
         <h1>Entrada de Veículos</h1>
         <br />
-        <br />
-        <div class="col-sm-12">
-            <input type="text" class="form-control" id="docs" placeholder="Digite a Placa ou Documento"
-                   ng-model="ctrl.currentRecord.DOCS" required
-                   ng-keyup="ctrl.GetProprietarioPlaca($event)">
+        <div >
+            <input type="text" class="form-controlMaior" id="docs" placeholder="Digite a Placa ou Documento"
+                   ng-model="ctrl.currentRecord.DOCS" ng-keyup="ctrl.GetProprietarioPlaca($event)">
         </div>
-
     </div>
 
     <luar-main-form ng-show="Cadastro">
@@ -28,15 +25,9 @@
             <tab heading="Dados de Entrada">
                 <tab-heading> Dados de Entrada</tab-heading>
                 <fieldset>
-                    <!--<div class="row">
-                        <luar-text container-class="col-md-2" label="Código" name="codigo"
-                                   readonly ng-model="ctrl.currentRecord.id"></luar-text>
-                        ng-change="ctrl.GetProprietarioPlaca()"
-                    </div>-->
-
                     <div class="row">
-                        <luar-text container-class="col-md-3" label="Placa" name="placa" required 
-                                   ng-model="ctrl.currentRecord.PLACA"                                  
+                        <luar-text container-class="col-md-3" label="Placa" name="placa" required
+                                   ng-model="ctrl.currentRecord.PLACA"
                                    maxlength="7"></luar-text>
 
                         <luar-text container-class="col-md-3" label="Documento" required name="nome" maxlength="15"
@@ -49,18 +40,20 @@
                     </div>
 
                     <div class="row">
-                        <luar-text container-class="col-md-2" label="Torre" name="Torre"
-                                   ng-model="ctrl.currentRecord.TORRE" required></luar-text>
+                        <luar-select container-class="col-md-2" label="Torre" name="torre" required
+                                     ng-options="item.id as item.NOME  for item in ::ctrl.TorreLook"
+                                     ng-model="ctrl.currentRecord.TORRE">
+                        </luar-select>
 
-                        <luar-text container-class="col-md-2" label="Nro AP" name="nrpap" maxlength="4"
+                        <luar-text container-class="col-md-2" label="Nro AP" name="nrpap" type="number" maxlength="4"
                                    ng-model="ctrl.currentRecord.COD_CADAPARTAMENTO" required></luar-text>
 
                         <luar-text container-class="col-md-2" label="Garagem" name="garagem" maxlength="4"
-                                   ng-model="ctrl.currentRecord.GARAGEM" required></luar-text>
+                                   ng-model="ctrl.currentRecord.GARAGEM" type="number" required></luar-text>
                     </div>
 
                     <div class="row">
-                        <luar-text container-class="col-md-8" label="Proprietário AP" required name="documentoNomeAP"
+                        <luar-text container-class="col-md-8" label="Proprietário AP" name="documentoNomeAP"
                                    ng-model="ctrl.currentRecord.NOME_PESSOA_AP"></luar-text>
                     </div>
 

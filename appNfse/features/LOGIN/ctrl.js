@@ -25,13 +25,14 @@ var App;
 
                         if (_this.EmpresaSelecionada.CEMP != "") {
                             _this.loginOK();
-
+                            debugger;
                             $location.path('/home');    
                             toaster.clear();
                         }
                         else {
                             security.empresas($rootScope.currentUser.id).then(function (dados) {
                                 var emp = dados;
+                                debugger;
 
                                 if (emp.length == null || emp.length == 0) {
                                     toaster.warning("Atenção", "Usuário sem empresa de acesso!");

@@ -21,9 +21,15 @@ var App;
                 this.crudSvc = CrudMov_EntradaService;
                 this.lista = lista;
 
+                this.TorreLook = [{ id: 1, NOME: '01' }, { id: 2, NOME: '02' }, { id: 3, NOME: '03' }];
+                
                 this.GetProprietarioPlaca = function (event) {
                     if (event.keyCode == 13) {
                         if (_this.currentRecord != null && _this.currentRecord.DOCS != null) {
+                            _this.currentRecord.PLACA = _this.currentRecord.DOCS;
+                            _this.currentRecord.TORRE = null;
+                            _this.currentRecord.COD_CADAPARTAMENTO = null;
+
                             _this.crudSvc.GetProprietarioPlaca(_this.currentRecord.DOCS).then(function (dados) {
                                 _this.currentRecord.DOCS = null;
                                 if (dados != null) {
@@ -44,10 +50,17 @@ var App;
 
                                     if (dados.COD_CADAPARTAMENTO > 0)
                                         _this.currentRecord.COD_CADAPARTAMENTO = dados.COD_CADAPARTAMENTO;
+
+                                    if (_this.currentRecord.PLACA.length > 7) {
+                                        _this.currentRecord.DOCUMENTO_PESSOA = _this.currentRecord.PLACA;
+                                        _this.currentRecord.PLACA = null;
+                                    }
+
+                                    _this.mainForm.$pristine = true;
                                 }
                                 else {
                                     _this.currentRecord.COD_CADPESSOA = null;
-                                    _this.currentRecord.COD_CADVEICULO = null;
+                                    _this.currentRecord.COD_CADVEICULO = null;                                    
                                 }
                                 _this.$rootScope.Cadastro = true;
                             });
@@ -56,10 +69,19 @@ var App;
                         }
                     }
                     else {
-                        _this.currentRecord.NOME_PESSOA = null;
-                        _this.currentRecord.COD_CADPESSOA = null;
+                        if (_this.currentRecord != null) {
+                            _this.currentRecord.NOME_PESSOA = null;
+                            _this.currentRecord.COD_CADPESSOA = null;
+                        }
                     }
                 }
+                
+                debugger;
+                this.crudConfig = {
+                    mostraExcluir: false
+                };
+
+                this.acoes = [];
             }
 
             CrudMov_EntradaCtrl.prototype.crud = function () {
@@ -68,8 +90,16 @@ var App;
 
             CrudMov_EntradaCtrl.prototype.prepararParaSalvar = function () {
                 debugger;
+                this.currentRecord.id = null;
                 this.currentRecord.PLACA = this.currentRecord.PLACA.toUpperCase().replace('-', '');
+                this.currentRecord.NOME_PESSOA = this.currentRecord.NOME_PESSOA.toUpperCase();
+                this.currentRecord.CODIGOSISUSUARIO = this.$rootScope.currentUser.id;
             };
+
+            CrudMov_EntradaCtrl.prototype.execAntesEdit = function (item) {
+                item.id = null;
+                return true;
+            }
 
             return CrudMov_EntradaCtrl;
         })(Controllers.CrudBaseEditCtrl);

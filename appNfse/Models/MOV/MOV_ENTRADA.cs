@@ -22,8 +22,7 @@
         public int CODIGOSISUSUARIO { get; set; }               
 
         [NotMapped]
-        public string CEMP { get; set; }
-        
+        public string CEMP { get; set; }        
         [NotMapped]
         public string DOCUMENTO_PESSOA { get; set; }
         [NotMapped]

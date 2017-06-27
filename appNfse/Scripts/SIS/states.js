@@ -73,7 +73,7 @@
             controllerAs: 'ctrl',
             resolve: {
                 lista: function (CrudMov_EntradaService) {
-                    return CrudMov_EntradaService.buscar('', 1, 'id', false, 15, '');
+                    return [];//CrudMov_EntradaService.buscar('', 1, 'id', false, 15, '');
                 }
             }
 

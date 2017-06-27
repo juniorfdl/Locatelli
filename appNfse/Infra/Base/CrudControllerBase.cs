@@ -118,10 +118,6 @@
 
         protected virtual void BeforeReturn(T item)
         {
-            //if (typeof(IRaizDeAgregacao).IsAssignableFrom(typeof(T)))
-            //{
-            //    ((IRaizDeAgregacao)item).Flag = null;
-            //}
             if (_scheduledActions != null)
             {
                 foreach (var acao in _scheduledActions)

@@ -24,5 +24,6 @@
         public string TIPO { get; set; }
         public string ATIVO { get; set; }
         public string OBS { get; set; }
+        public int? COD_CADAPARTAMENTO { get; set; }
     }
 }
